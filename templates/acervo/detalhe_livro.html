@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ livro.titulo }}{% endblock %}
+{% block content %}
+<h1>{{ livro.titulo }}</h1>
+<div class="detail-box">
+    <p><strong>Ano de publicação:</strong> {{ livro.ano_publicacao }}</p>
+    <p><strong>Editora:</strong> {{ livro.editora }}</p>
+    <p><strong>Autor:</strong> <a href="{% url 'acervo:detalhe_autor' livro.autor.pk %}">{{ livro.autor.nome }}</a></p>
+    <p><strong>Resumo:</strong> {{ livro.resumo }}</p>
+</div>
+<a class="back-link" href="{% url 'acervo:lista_livros' %}">&larr; Voltar para Livros</a>
+{% endblock %}

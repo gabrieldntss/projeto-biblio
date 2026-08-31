@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ autor.nome }}{% endblock %}
+{% block content %}
+<h1>{{ autor.nome }}</h1>
+<div class="detail-box">
+    <p><strong>Nacionalidade:</strong> {{ autor.nacionalidade }}</p>
+    <p><strong>Livros:</strong></p>
+    <ul>
+        {% for livro in autor.acervo_set.all %}
+            <li><a href="{% url 'acervo:detalhe_livro' livro.pk %}">{{ livro.titulo }}</a></li>
+        {% empty %}
+            <li class="empty">Nenhum livro cadastrado para este autor.</li>
+        {% endfor %}
+    </ul>
+</div>
+<a class="back-link" href="{% url 'acervo:lista_autores' %}">&larr; Voltar para Autores</a>
+{% endblock %}

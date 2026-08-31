@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Autores{% endblock %}
+{% block content %}
+<h1>Autores</h1>
+<div class="card-list">
+    {% for autor in autores %}
+        <div class="card">
+            <a href="{% url 'acervo:detalhe_autor' autor.pk %}">{{ autor.nome }}</a>
+            <p>{{ autor.nacionalidade }}</p>
+        </div>
+    {% empty %}
+        <p class="empty">Nenhum autor cadastrado ainda.</p>
+    {% endfor %}
+</div>
+{% endblock %}

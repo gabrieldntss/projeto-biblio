@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #1e2a38; }
+        nav { background: #2d6a4f; padding: 1rem 2rem; }
+        nav a { color: #fff; text-decoration: none; margin-right: 1.5rem; font-weight: bold; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { color: #2d6a4f; }
+        .card-list { display: grid; gap: 1rem; }
+        .card { background: #fff; border-radius: 8px; padding: 1rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .card a { color: #2d6a4f; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+        .card a:hover { text-decoration: underline; }
+        .detail-box { background: #fff; border-radius: 8px; padding: 1.5rem 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .detail-box p { margin: 0.5rem 0; }
+        .back-link { display: inline-block; margin-top: 1.5rem; color: #2d6a4f; }
+        .empty { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'acervo:lista_livros' %}">📚 Livros</a>
+        <a href="{% url 'acervo:lista_autores' %}">✍️ Autores</a>
+        <a href="/admin/">Admin</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Livros{% endblock %}
+{% block content %}
+<h1>Livros</h1>
+<div class="card-list">
+    {% for livro in livros %}
+        <div class="card">
+            <a href="{% url 'acervo:detalhe_livro' livro.pk %}">{{ livro.titulo }}</a>
+            <p>{{ livro.ano_publicacao }} — {{ livro.editora }}</p>
+        </div>
+    {% empty %}
+        <p class="empty">Nenhum livro cadastrado ainda.</p>
+    {% endfor %}
+</div>
+{% endblock %}
